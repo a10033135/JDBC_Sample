@@ -26,6 +26,7 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             _isLoading.value = true
             delay(2000L)
+            // todo 2-3 : 使用 ApiService 呼叫 getEmployeeList
             _employeeList.value = ApiService.create(ApiInterface::class.java).getEmployeeList()
             _isLoading.value = false
         }

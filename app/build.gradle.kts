@@ -36,7 +36,7 @@ android {
     buildFeatures {
         compose = true
 
-        // todo 3-1 添加 BuildConfig 增加 Flavor 機制
+        // todo 0-1 添加 BuildConfig 增加 Flavor 機制
         buildConfig = true
     }
     composeOptions {
@@ -48,7 +48,8 @@ android {
         }
     }
 
-    // todo 3-2 添加 Flavor 機制
+    // todo 0-2 添加需要的 Flavor
+    // https://developer.android.com/build/build-variants?hl=zh-tw
     flavorDimensions += "version"
     productFlavors {
         create("emulator") {

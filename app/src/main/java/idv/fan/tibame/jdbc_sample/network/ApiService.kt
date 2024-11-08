@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 // todo 2: 目前主流為 Retrofit + OkHttp + Gson
 object ApiService {
 
-    // todo 3-3: 透過 BuildConfig 定義 BASE_URL
+    // todo 0-3: 透過 BuildConfig 定義 BASE_URL
     private val BASE_URL = BuildConfig.BASE_URL
 
     private val gson: Gson by lazy { GsonBuilder().create() }
@@ -27,17 +27,6 @@ object ApiService {
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY  // 加入詳細的請求/回應日誌
             })
-            .addInterceptor { chain ->
-                val request = chain.request()
-                Timber.d("URL: ${request.url}")
-                Timber.d("Method: ${request.method}")
-                Timber.d("Headers: ${request.headers}")
-
-                val response = chain.proceed(request)
-                Timber.d("Response Code: ${response.code}")
-                Timber.d("Response Message: ${response.message}")
-                response
-            }
             .build()
     }
 
